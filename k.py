@@ -8,13 +8,13 @@ def GetFileExtension(file_name):
     file_extension = pathlib.Path(file_name).suffix
     return file_extension
 
-driver = webdriver.Chrome(executable_path="")
+driver = webdriver.Chrome(executable_path="Duong dan den file webdriver")
 
 driver.set_window_size(1000, 1000)
 
-driver.get('https://cst.hnue.edu.vn/mod/assign/view.php?id=109940&action=grading')
-driver.find_element_by_id('username').send_keys('')
-driver.find_element_by_id('password').send_keys('')
+driver.get('link bai tap')
+driver.find_element_by_id('username').send_keys('Tai khoan cst')
+driver.find_element_by_id('password').send_keys('Mat khau cst')
 driver.find_element_by_id('loginbtn').click()
 time.sleep(5)
 
