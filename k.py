@@ -8,13 +8,13 @@ def GetFileExtension(file_name):
     file_extension = pathlib.Path(file_name).suffix
     return file_extension
 
-driver = webdriver.Chrome(executable_path="Duong dan den file webdriver")
+driver = webdriver.Chrome(executable_path="Link webdriver")
 
 driver.set_window_size(1000, 1000)
 
-driver.get('link bai tap')
-driver.find_element_by_id('username').send_keys('Tai khoan cst')
-driver.find_element_by_id('password').send_keys('Mat khau cst')
+driver.get('Link mục bài tập')
+driver.find_element_by_id('username').send_keys('TK CST')
+driver.find_element_by_id('password').send_keys('MK CST')
 driver.find_element_by_id('loginbtn').click()
 time.sleep(5)
 
@@ -23,10 +23,10 @@ list_a = []
 slsv = 50
 i = 1
 while(i<=slsv):
-    time.sleep(3)
+    time.sleep(1)
     trs = driver.find_elements_by_xpath('/html/body/div[3]/div[5]/div/div/section/div[1]/div[4]/div[3]/table/tbody/tr[%i]' %i)
     for j in trs:
-        time.sleep(3)
+        time.sleep(1)
         count = 0
         list_b = []
         tds = j.find_elements_by_tag_name('td')
@@ -62,7 +62,7 @@ while(i<=slsv):
     list_a.append(list_b)
 header = ["Họ và tên", "Mã sv", "Số file"]
 df = pd.DataFrame(list_a, columns=header)
-writer = pd.ExcelWriter('test.xlsx', engine='xlsxwriter')
+writer = pd.ExcelWriter('result.xlsx', engine='xlsxwriter')
 df.to_excel(writer, sheet_name='welcome', index=False)
 writer.save()
 time.sleep(3)
